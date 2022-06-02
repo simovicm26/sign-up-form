@@ -1,3 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+:root{
+    --color-white:#ffffff;
+    --color-grey:#5A5A5A;
+    --small-font-size:clamp(16px,1.1vw,20px);
+    --large-font-size:clamp(20px,2.5vw,50px);
+    --medium-font-size:clamp(18px,1.7vw,30px);
+    --mini-font-size:clamp(13px,0.9vw,16px);
+}
+
 body{
-    background-color: red;
+    background-color:var(--color-grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color:var(--color-white);
+    font-family: 'Open Sans', sans-serif;
+    
+}
+.main-container{
+    width:75vw;
+    height: 90vh;
+    background-color: var(--color-white);
+    box-shadow: -8px 10px 29px 19px rgba(0, 0, 0, 0.05), -6px 11px 20px rgba(0, 0, 0, 0.22);
+    display: flex;
+    flex-direction:row;
+}
+
+.image-container{
+    background-image: url(./ethereum-image.jpg);
+    background-size: cover;
+    background-position: center bottom;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.top-text-container > h1{
+    font-size: var(--large-font-size);
+    font-weight: 400;
+    margin: 0;
+}
+
+.top-text-container > h3{
+    font-size: var(--small-font-size);
+    font-weight: 400;
+    margin: 0;
+}
+
+.image-container > h3{
+    font-weight: 400;
+    font-size:var(--medium-font-size);
+    margin: 0;
+}
+
+.top-text-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.form-container{
+    width:55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+
+form{
+    color:var(--color-grey);
+    font-size: var(--small-font-size);
+    font-weight: 300;
+    -webkit-appearance:none;
+    appearance:none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+    width: 13vw;
+    align-items: flex-start;
+    position: relative;
+    height: 55px;
+    overflow:hidden;
+}
+.input-wrapper{
+    display: flex;
+    align-items: row;
+    padding: 40px 0;
+}
+
+input{
+    padding: 20px 0 2px 4px;
+    border:0;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    outline: none;
+    font-family: inherit;
+    color:var(--color-grey)
+}
+
+input:focus + label .content-name
+, input:valid + label .content-name{
+    transform: translateY(-150%);
+    color:#CD05FF;
+    font-size: var(--mini-font-size);
+}
+
+input:focus + label::after,
+input:valid + label::after{   
+
+    transform:translateX(0%);
+}
+button{
+    width: 13vw;
+    margin:40px 0;  
+    padding: 13px 0;
+    font-size: var(--small-font-size);
+    font-family : inherit;
+    border: none;
+    color: #ffffff;
+    background-image: linear-gradient(90deg, #CD05FF -12.8%, #050FFF 167.2%);
+    margin-bottom: 0;
+    outline:none;
+    position: relative;
+    z-index: 1;
+}   
+
+button::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    bottom:0;
+    background-image: linear-gradient(270deg, #b91ce0 -12.8%, #3237d6 167.2%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: -1;
+}
+
+button:hover::before{
+    opacity: 1;
+}
+label{
+    padding-left: 8px;
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width:100%;
+    pointer-events: none;
+    border-bottom: 1px solid var(--color-grey);
+}
+
+label::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-bottom: 2px solid #CD05FF;
+    left:0;
+    bottom:-1px;
+    transform:translateX(-100%);
+    transition: all 0.3s ease;
+}
+
+form > p{
+    font-size: var(--mini-font-size);
+    font-weight: 400;
+    margin: 0;
+    padding-top: 30px;
+    overflow: hidden;
+}
+
+a{
+    font-weight: 500;
+    text-decoration: none;
+    color:#8400ff;
+    padding-left: 8px;
+    position:relative;
+    outline: none;
+}
+
+.content-name{
+    position: absolute;
+    transition: all 0.2s ease;
+    left: 0;
+    bottom: 0;
+    padding-left: 4px;
 }
