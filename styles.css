@@ -123,6 +123,7 @@ input:valid + label::after{
 
     transform:translateX(0%);
 }
+
 button{
     width: 13vw;
     margin:40px 0;  
@@ -154,6 +155,7 @@ button::before{
 button:hover::before{
     opacity: 1;
 }
+
 label{
     padding-left: 8px;
     position: absolute;
@@ -199,4 +201,10 @@ a{
     left: 0;
     bottom: 0;
     padding-left: 4px;
+}
+
+#error-message, #error-message-second{
+    color:red;
+    margin:10px 0;
+    padding:0;
 }
