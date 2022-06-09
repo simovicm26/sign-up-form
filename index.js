@@ -1,52 +1,58 @@
+let emailInput = document.querySelector('#mail');
+
 let errorMessage = document.querySelector('#error-message');
-
-let errorMessageSecond = document.querySelector('#error-message-second')
-
-let confirmPassword;
-
-let email;
-
-let password;
 
 let button = document.querySelector('button');
 
-function validatePassword(){
+let password = document.querySelector('#password');
 
-    email = document.querySelector('#mail').value;
+let confirmPassword = document.querySelector('#confirm-password');
 
-    emailArray = email.split('');
+let secondErrorMessage = document.querySelector('#error-message-second');
 
-    password = document.querySelector('#password').value;
+emailInput.addEventListener('change',function(){
+checkEmail();
+})
 
-    confirmPassword = document.querySelector('#confirm-password').value;
-
-    passwordArray = password.split('');
-    
-    confirmPasswordArray = confirmPassword.split('');
-    
-    for(i=0;i<passwordArray.length;i++){
-        if(passwordArray[i] !== confirmPasswordArray[i]){
-            errorMessage.textContent = 'Please make sure the passwords match';
-            break;
-        } else{
-            errorMessage.textContent = '';
-        }
-
-    }
+function checkEmail(){
+    const emailArray = emailInput.value.split('');
+    console.log(emailArray)
     let x = 0;
-
-    for(i=0;i<=emailArray.length;i++){
-        if(emailArray[i] === '@'){
+    for(i=0;i<emailArray.length;i++){
+        if(emailArray[i]==='@'){
             x += 1;
-        }     
+        }
     }
-    if( x !== 1){
-        errorMessageSecond.textContent = 'Please enter a valid email';
+    if (x !== 1){
+        errorMessage.textContent = 'Please enter a valid email.';
+        button.classList.add('disabled');
     } else{
-        errorMessageSecond.textContent = '';
+        errorMessage.textContent = '';
+        button.classList.remove('disabled');
     }
 }
+password.addEventListener('change', function(){
+    verifyPassword();
+})
+confirmPassword.addEventListener('change',function(){
+    verifyPassword();
+})
 
-button.addEventListener('click', function(){
-    validatePassword();
-});
+function verifyPassword(){
+    const passArray = password.value.split('');
+    const confirmPassArray = confirmPassword.value.split('');
+    let x = 0;
+    for(i = 1 ;i <= 20; i++){
+        if(confirmPassArray[i] !== passArray[i]){
+            x = 1;
+            break;
+        }
+    }
+    if(x === 1) {
+        button.classList.add('disabled-second');
+        secondErrorMessage.textContent = 'Please enter a matching password.';
+    } else {
+        button.classList.remove('disabled-second');
+        secondErrorMessage.textContent = '';
+    }
+}

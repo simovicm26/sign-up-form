@@ -208,3 +208,15 @@ a{
     margin:10px 0;
     padding:0;
 }
+
+.disabled{
+    background: #c9c9c9;
+    pointer-events: none;
+    color:black;
+}
+
+.disabled-second{
+    background: #c9c9c9;
+    pointer-events: none;
+    color:black;
+}
